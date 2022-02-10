@@ -1,8 +1,13 @@
 class Shape {
   constructor() {}
 
+  addDiv() {
+    let div = $("<div>");
+    div.appendTo("#shapes")
+  }
+
   describe() {
-    
+
   }
 }
 
@@ -19,7 +24,9 @@ class Triangle extends Shape {
 }
 
 class Rectangle extends Shape {
-  constructor() {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
     super();
   }
 }
@@ -29,3 +36,4 @@ class Square extends Shape {
     super();
   }
 }
+
