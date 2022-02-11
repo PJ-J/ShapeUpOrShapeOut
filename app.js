@@ -14,13 +14,10 @@ class Circle extends Shape {
 
     this.radius = radius;
   }
-  // describe() {
-  //   console.log("describe");
-  // }
-
+  
   buildCircle() {
     function describe() {
-      console.log("describe");
+      console.log("describe circle");
       $("#panelShape").val("Circle");
       $("#panelWidth").val(radiusval *2);
       $("#panelHeight").val(radiusval *2);
@@ -55,12 +52,25 @@ class Triangle extends Shape {
     this.height = height;
   }
   makeTriangle() {
+    function describe() {
+      console.log("describe triangle");
+      $("#panelShape").val("Triangle");
+      $("#panelWidth").val(heightVal);
+      $("#panelHeight").val(heightVal);
+      $("#panelRadius").val("N/A");
+      $("#panelArea").val(0.5 * heightVal * heightVal);
+      $("#panelPerimeter").val(Math.sqrt(heightVal + heightVal));
+    }
+    let heightVal = $("#triHeight").val();
     let div = $("<div>");
     div.css("height", "0");
     div.css("width", "0");
     div.css("border-bottom", `${this.height}px solid yellow`);
     div.css("border-right", `${this.height}px solid transparent`);
     div.appendTo($("#shapes"));
+    div.on("click", function () {
+      describe();
+    });
   }
 }
 $("#triBtn").on("click", function () {
@@ -75,15 +85,29 @@ class Rectangle extends Shape {
     super(height, width);
   }
   makeRectangle() {
+    function describe() {
+      console.log("describe rectangle");
+      $("#panelShape").val("Rectangle");
+      $("#panelWidth").val(widthVal);
+      $("#panelHeight").val(heightVal);
+      $("#panelRadius").val("N/A");
+      $("#panelArea").val(heightVal * widthVal);
+      $("#panelPerimeter").val((heightVal * 2 + widthVal * 2));
+    }
+    let heightVal = $("#rHeight").val();
+    let widthVal = $("#rWidth").val();
     let div = $("<div>");
     div.css("background", "green");
     div.css("height", this.height);
     div.css("width", this.width);
     div.appendTo($("#shapes"));
+    div.on("click", function () {
+      describe();
+    });
   }
 }
 $("#rectBtn").on("click", function () {
-  let r1 = new Rectangle($("#rheight").val(), $("#rwidth").val());
+  let r1 = new Rectangle($("#rHeight").val(), $("#rWidth").val());
   r1.makeRectangle();
   console.log(r1);
 });
@@ -94,11 +118,25 @@ class Square extends Shape {
     this.sideLength = sideLength;
   }
   makeSquare() {
+    function describe() {
+      console.log("describe square");
+      $("#panelShape").val("Square");
+      $("#panelWidth").val(sideVal);
+      $("#panelHeight").val(sideVal);
+      $("#panelRadius").val("N/A");
+      $("#panelArea").val(sideVal * 2);
+      $("#panelPerimeter").val((sideVal * 4));
+    }
+    let sideVal = $("#sideLength").val();
     let div = $("<div>");
+    div.css("position", "absolute");
     div.css("background", "red");
     div.css("height", this.sideLength);
     div.css("width", this.sideLength);
     div.appendTo($("#shapes"));
+    div.on("click", function () {
+      describe();
+    });
   }
 }
 $("#squBtn").on("click", function () {
