@@ -148,7 +148,7 @@ class Square extends Shape {
       $("#panelWidth").val(sideVal);
       $("#panelHeight").val(sideVal);
       $("#panelRadius").val("N/A");
-      $("#panelArea").val(sideVal * 2);
+      $("#panelArea").val(Math.pow(sideVal,2));
       $("#panelPerimeter").val(sideVal * 4);
     }
 
