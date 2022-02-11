@@ -6,6 +6,7 @@
 }
 #shapes .inside {
   position: absolute;
+  opacity: 60%;
   
 }
 #sidePanel {

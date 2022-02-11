@@ -30,7 +30,7 @@ class Circle extends Shape {
     console.log(randomX);
     let randomY = Math.floor(Math.random() * (600 - Number(radiusval * 2)));
     console.log(randomY);
-    
+
     let div = $("<div>");
     div.id = "circle";
     div.addClass("inside");
@@ -74,7 +74,7 @@ class Triangle extends Shape {
     console.log(randomX);
     let randomY = Math.floor(Math.random() * (600 - Number(heightVal)));
     console.log(randomY);
-    
+
     let div = $("<div>");
     div.addClass("inside");
     div.css("top", `${randomY}px`);
@@ -116,7 +116,7 @@ class Rectangle extends Shape {
     console.log(randomX);
     let randomY = Math.floor(Math.random() * (600 - Number(heightVal)));
     console.log(randomY);
-   
+
     let div = $("<div>");
     div.addClass("inside");
     div.css("top", `${randomY}px`);
