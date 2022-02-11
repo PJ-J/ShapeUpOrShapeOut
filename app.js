@@ -14,20 +14,28 @@ class Circle extends Shape {
 
     this.radius = radius;
   }
-  
+
   buildCircle() {
     function describe() {
       console.log("describe circle");
       $("#panelShape").val("Circle");
-      $("#panelWidth").val(radiusval *2);
-      $("#panelHeight").val(radiusval *2);
+      $("#panelWidth").val(radiusval * 2);
+      $("#panelHeight").val(radiusval * 2);
       $("#panelRadius").val(radiusval);
-      $("#panelArea").val(Math.PI*Math.pow(radiusval, 2));
-      $("#panelPerimeter").val(2*Math.PI*radiusval);
+      $("#panelArea").val(Math.PI * Math.pow(radiusval, 2));
+      $("#panelPerimeter").val(2 * Math.PI * radiusval);
     }
     let radiusval = $("#radius").val();
+    let randomX = Math.floor(Math.random() * (600 - Number(radiusval * 2)));
+    console.log(randomX);
+    let randomY = Math.floor(Math.random() * (600 - Number(radiusval * 2)));
+    console.log(randomY);
+    
     let div = $("<div>");
     div.id = "circle";
+    div.addClass("inside");
+    div.css("top", `${randomY}px`);
+    div.css("left", `${randomX}px`);
     div.css("height", this.radius * 2);
     div.css("width", this.radius * 2);
     div.css("border-radius", "50%");
@@ -62,7 +70,15 @@ class Triangle extends Shape {
       $("#panelPerimeter").val(Math.sqrt(heightVal + heightVal));
     }
     let heightVal = $("#triHeight").val();
+    let randomX = Math.floor(Math.random() * (600 - Number(heightVal)));
+    console.log(randomX);
+    let randomY = Math.floor(Math.random() * (600 - Number(heightVal)));
+    console.log(randomY);
+    
     let div = $("<div>");
+    div.addClass("inside");
+    div.css("top", `${randomY}px`);
+    div.css("left", `${randomX}px`);
     div.css("height", "0");
     div.css("width", "0");
     div.css("border-bottom", `${this.height}px solid yellow`);
@@ -92,11 +108,19 @@ class Rectangle extends Shape {
       $("#panelHeight").val(heightVal);
       $("#panelRadius").val("N/A");
       $("#panelArea").val(heightVal * widthVal);
-      $("#panelPerimeter").val((heightVal * 2 + widthVal * 2));
+      $("#panelPerimeter").val(heightVal * 2 + widthVal * 2);
     }
     let heightVal = $("#rHeight").val();
     let widthVal = $("#rWidth").val();
+    let randomX = Math.floor(Math.random() * (600 - Number(widthVal)));
+    console.log(randomX);
+    let randomY = Math.floor(Math.random() * (600 - Number(heightVal)));
+    console.log(randomY);
+   
     let div = $("<div>");
+    div.addClass("inside");
+    div.css("top", `${randomY}px`);
+    div.css("left", `${randomX}px`);
     div.css("background", "green");
     div.css("height", this.height);
     div.css("width", this.width);
@@ -125,15 +149,25 @@ class Square extends Shape {
       $("#panelHeight").val(sideVal);
       $("#panelRadius").val("N/A");
       $("#panelArea").val(sideVal * 2);
-      $("#panelPerimeter").val((sideVal * 4));
+      $("#panelPerimeter").val(sideVal * 4);
     }
+
     let sideVal = $("#sideLength").val();
+    let randomX = Math.floor(Math.random() * (600 - Number(sideVal)));
+    console.log(randomX);
+    let randomY = Math.floor(Math.random() * (600 - Number(sideVal)));
+    console.log(randomY);
     let div = $("<div>");
-    div.css("position", "absolute");
+    div.addClass("inside");
+    div.appendTo($("#shapes"));
+
+    div.css("top", `${randomY}px`);
+    div.css("left", `${randomX}px`);
     div.css("background", "red");
     div.css("height", this.sideLength);
     div.css("width", this.sideLength);
-    div.appendTo($("#shapes"));
+    // console.log($("#square"));
+
     div.on("click", function () {
       describe();
     });
