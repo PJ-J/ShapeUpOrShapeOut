@@ -3,6 +3,9 @@ class Shape {
     this.height = height;
     this.width = width;
   }
+  describe() {
+    console.log("describe");
+  }
 }
 
 class Circle extends Shape {
@@ -11,17 +14,31 @@ class Circle extends Shape {
 
     this.radius = radius;
   }
+  // describe() {
+  //   console.log("describe");
+  // }
+
   buildCircle() {
+    function describe() {
+      console.log("describe");
+      $("#panelShape").val("Circle");
+      $("#panelWidth").val(radiusval *2);
+      $("#panelHeight").val(radiusval *2);
+      $("#panelRadius").val(radiusval);
+      $("#panelArea").val(Math.PI*Math.pow(radiusval, 2));
+      $("#panelPerimeter").val(2*Math.PI*radiusval);
+    }
+    let radiusval = $("#radius").val();
     let div = $("<div>");
     div.id = "circle";
-    div.css("height", this.radius);
-    div.css("width", this.radius);
+    div.css("height", this.radius * 2);
+    div.css("width", this.radius * 2);
     div.css("border-radius", "50%");
     div.css("background", "purple");
     div.appendTo($("#shapes"));
-  }
-  describe() {
-    console.log("describe");
+    div.on("click", function () {
+      describe();
+    });
   }
 }
 $("#circleBtn").on("click", function () {
@@ -30,9 +47,6 @@ $("#circleBtn").on("click", function () {
   c1.buildCircle();
 
   console.log(c1);
-});
-$("<div>").on("click", function() {
-  describe();
 });
 
 class Triangle extends Shape {
