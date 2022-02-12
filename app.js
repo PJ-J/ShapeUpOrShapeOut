@@ -44,6 +44,15 @@ class Circle extends Shape {
     div.on("click", function () {
       describe();
     });
+    div.on("dblclick", function () {
+      div.remove();
+      $("#panelShape").val('');
+      $("#panelWidth").val('');
+      $("#panelHeight").val('');
+      $("#panelRadius").val('');
+      $("#panelArea").val('');
+      $("#panelPerimeter").val('');
+    });
   }
 }
 $("#circleBtn").on("click", function () {
@@ -87,6 +96,15 @@ class Triangle extends Shape {
     div.on("click", function () {
       describe();
     });
+    div.on("dblclick", function () {
+      div.remove();
+      $("#panelShape").val('');
+      $("#panelWidth").val('');
+      $("#panelHeight").val('');
+      $("#panelRadius").val('');
+      $("#panelArea").val('');
+      $("#panelPerimeter").val('');
+    });
   }
 }
 $("#triBtn").on("click", function () {
@@ -128,6 +146,15 @@ class Rectangle extends Shape {
     div.on("click", function () {
       describe();
     });
+    div.on("dblclick", function () {
+      div.remove();
+      $("#panelShape").val('');
+      $("#panelWidth").val('');
+      $("#panelHeight").val('');
+      $("#panelRadius").val('');
+      $("#panelArea").val('');
+      $("#panelPerimeter").val('');
+    });
   }
 }
 $("#rectBtn").on("click", function () {
@@ -148,7 +175,7 @@ class Square extends Shape {
       $("#panelWidth").val(sideVal);
       $("#panelHeight").val(sideVal);
       $("#panelRadius").val("N/A");
-      $("#panelArea").val(Math.pow(sideVal,2));
+      $("#panelArea").val(Math.pow(sideVal, 2));
       $("#panelPerimeter").val(sideVal * 4);
     }
 
@@ -166,15 +193,23 @@ class Square extends Shape {
     div.css("background", "red");
     div.css("height", this.sideLength);
     div.css("width", this.sideLength);
-    // console.log($("#square"));
 
     div.on("click", function () {
       describe();
     });
+    div.on("dblclick", function () {
+      div.remove();
+      $("#panelShape").val('');
+      $("#panelWidth").val('');
+      $("#panelHeight").val('');
+      $("#panelRadius").val('');
+      $("#panelArea").val('');
+      $("#panelPerimeter").val('');
+    });
   }
 }
 $("#squBtn").on("click", function () {
-  let s1 = new Square($("#sideLength").val(), $("#sideLength").val());
+  let s1 = new Square($("#sideLength").val());
 
   s1.makeSquare();
 
