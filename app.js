@@ -17,7 +17,7 @@ class Circle extends Shape {
 
   buildCircle() {
     function describe() {
-      console.log("describe circle");
+      console.log("describe circle!");
       $("#panelShape").val("Circle");
       $("#panelWidth").val(radiusval * 2);
       $("#panelHeight").val(radiusval * 2);
